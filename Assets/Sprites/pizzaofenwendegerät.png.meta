@@ -9,6 +9,8 @@ TextureImporter:
     21300004: "pizzaofenwendeger\xE4t_2"
     21300006: "pizzaofenwendeger\xE4t_3"
     21300008: "pizzaofenwendeger\xE4t_4"
+    21300010: "pizzaofenwendeger\xE4t_5"
+    21300012: "pizzaofenwendeger\xE4t_6"
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -36,7 +38,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -123,7 +125,7 @@ TextureImporter:
         width: 1281
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,7 +139,7 @@ TextureImporter:
         width: 19
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,7 +153,7 @@ TextureImporter:
         width: 11
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +167,7 @@ TextureImporter:
         width: 1931
         height: 2158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,6 +180,34 @@ TextureImporter:
         y: 1187
         width: 295
         height: 1514
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "pizzaofenwendeger\xE4t_5"
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 87
+        width: 205
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "pizzaofenwendeger\xE4t_6"
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 83
+        width: 42
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
-
-    float Money = 100.0f;
-    int Koalas = 1;
-    int Öfen = 1;
+    public static GameController Instance;
+    
+    float Money = 10000.0f;
+    public int Koalas = 0;
+    int Oefen = 1;
 
     int frameCount;
     int frameRange = 30;
@@ -16,16 +17,28 @@ public class GameController : MonoBehaviour {
     public Text koalaText;
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Awake () {
+        DontDestroyOnLoad(this);
+        if (Instance != null)
+            Destroy(gameObject);
+        else
+            Instance = this;
+        if (moneyText != null && koalaText != null)
+        {
+            moneyText.text = "Money: " + Money;
+            koalaText.text = "Koalas: " + Koalas;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
         frameCount++;
 
-        moneyText.text = "Money: " + Money;
-        koalaText.text = "Koalas: " + Koalas;
+        if(moneyText != null && koalaText != null)
+        {
+            moneyText.text = "Money: " + Money;
+            koalaText.text = "Koalas: " + Koalas;
+        }
 
         if (frameCount >= frameRange)
         {
@@ -41,19 +54,22 @@ public class GameController : MonoBehaviour {
 
     public void BuyKoala()
     {
-        if (Money > 100)
+        if (Money >= 100)
         {
             Koalas += 1;
             Money -= 100;
+            KoalaSpawner.Instance.SpawnKoala();
         }
     }
 
     public void Buy100Koalas()
     {
-        if (Money > 1000)
+        if (Money >= 1000)
         {
             Koalas += 100;
             Money -= 1000;
+            for(int i = 0; i<100; i++)
+                KoalaSpawner.Instance.SpawnKoala();
         }
     }
 }

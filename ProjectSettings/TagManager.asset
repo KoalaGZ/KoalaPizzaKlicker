@@ -41,7 +41,10 @@ TagManager:
   - name: Clouds
     uniqueID: 1805535797
     locked: 0
-  - name: FarBackground
+  - name: Background3
+    uniqueID: 1694559337
+    locked: 0
+  - name: Background2
     uniqueID: 1047325225
     locked: 0
   - name: Background
