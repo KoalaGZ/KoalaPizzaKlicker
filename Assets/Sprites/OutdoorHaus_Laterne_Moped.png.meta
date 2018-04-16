@@ -1,15 +1,13 @@
 fileFormatVersion: 2
-guid: cdeb224c38d13a94e9c3c3195dc894b7
-timeCreated: 1523274605
+guid: 9712413c25d0e9b4d88dc765707b0858
+timeCreated: 1523879769
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: environment_DesertBackground
-    21300002: environment_DesertHills
-    21300004: environment_ForestHills
-    21300006: environment_Clouds
-    21300008: environment_weirdTree
-    21300010: environment_0
+    21300000: OutdoorHaus
+    21300002: ButtonEingang
+    21300004: Laterne
+    21300006: Moped
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -106,85 +104,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: environment_DesertBackground
+      name: OutdoorHaus
       rect:
         serializedVersion: 2
-        x: 0
-        y: 126
-        width: 101
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 76
+        width: 156
+        height: 135
+      alignment: 9
+      pivot: {x: 0.5019356, y: 0.005683673}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: environment_DesertHills
+      name: ButtonEingang
       rect:
         serializedVersion: 2
-        x: 149
-        y: 215
-        width: 107
-        height: 41
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 137
+        y: 73
+        width: 39
+        height: 57
+      alignment: 9
+      pivot: {x: 0.4767726, y: 0.07619958}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: environment_ForestHills
+      name: Laterne
       rect:
         serializedVersion: 2
-        x: 0
-        y: 216
-        width: 142
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 222
+        y: 69
+        width: 83
+        height: 114
+      alignment: 9
+      pivot: {x: 0.55820876, y: 0.07619938}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: environment_Clouds
+      name: Moped
       rect:
         serializedVersion: 2
-        x: 0
-        y: 60
-        width: 227
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: environment_weirdTree
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 47
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: environment_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 174
-        width: 101
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 306
+        y: 158
+        width: 75
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5080526, y: 0.17824167}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

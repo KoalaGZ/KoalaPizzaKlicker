@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 4d3031a20c5922f4db7a3e285081735a
-timeCreated: 1523877282
+guid: e8d461b72a3705148b93aad166ba3a93
+timeCreated: 1523879769
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Koala
     21300002: Pizza
-    21300004: PizzaKarton
+    21300004: MasterKoala
+    21300006: PizzaKarton
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -106,10 +107,10 @@ TextureImporter:
       name: Koala
       rect:
         serializedVersion: 2
-        x: 11
+        x: 1
         y: 15
         width: 55
-        height: 94
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,7 +121,7 @@ TextureImporter:
       name: Pizza
       rect:
         serializedVersion: 2
-        x: 103
+        x: 93
         y: 68
         width: 23
         height: 24
@@ -131,10 +132,24 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
+      name: MasterKoala
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 15
+        width: 55
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
       name: PizzaKarton
       rect:
         serializedVersion: 2
-        x: 92
+        x: 82
         y: 21
         width: 40
         height: 35
