@@ -2124,6 +2124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0f0c8e170d28444b9d6d3c0bcb5cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pizzaKartonPrefab: {fileID: 1909631900114754, guid: 18cd03ccf0f77d642b7463610937dc82,
+    type: 2}
+  turnSpeed: 0
   type: 0
   amount: 12
 --- !u!4 &1368596415
@@ -2133,7 +2136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368596413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.593, y: 1.147, z: 0}
+  m_LocalPosition: {x: 7, y: 1.147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
