@@ -12,4 +12,14 @@ public class Stapel : MonoBehaviour {
     }
     public Type type;
     public int amount = 0;
+
+    public void AddElement()
+    {
+
+    }
+
+    public void RemoveElement()
+    {
+
+    }
 }
