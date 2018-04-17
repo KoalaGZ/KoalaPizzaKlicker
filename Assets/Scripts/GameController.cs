@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public static GameController Instance;
-    
+        
+
     float money = 10000.0f;
     public int koalas = 0;
     //int oefen = 1; ??
@@ -24,7 +25,10 @@ public class GameController : MonoBehaviour {
     
     #region moped
     public int mopedPrice = 100;
+    public int pizzakartonPrice = 10;
 
+    public GameObject deliveryVanPrefab;
+    public Stapel pizzaKartonStapel;
     public Transform Window;
 
     #endregion
@@ -97,6 +101,15 @@ public class GameController : MonoBehaviour {
             mopeds++;
             money -= mopedPrice;
             MopedSpawner.Instance.SpawnMoped();
+        }
+    }
+
+    public void BuyPizzaKarton()
+    {
+        if(money >= pizzakartonPrice)
+        {
+            DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
+            van.stapel = pizzaKartonStapel;
         }
     }
 }

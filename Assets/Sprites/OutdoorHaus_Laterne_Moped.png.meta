@@ -9,6 +9,7 @@ TextureImporter:
     21300004: Laterne
     21300006: Moped
     21300008: desk
+    21300010: FoodWagen
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -169,7 +170,21 @@ TextureImporter:
         width: 69
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FoodWagen
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 164
+        width: 105
+        height: 78
+      alignment: 9
+      pivot: {x: 0.4626148, y: 0.10900331}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
