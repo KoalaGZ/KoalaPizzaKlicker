@@ -57,8 +57,8 @@ public class KoalaController : MonoBehaviour {
                     {
                         if(transform.GetChild(0).name == "PizzaKarton(Clone)") 
                             currentTask = Task.BringPizzaKartonToOven;
-
-                        //currentTask = Task.BringSalamiToFridge;
+                        if (transform.GetChild(0).name == "Salami(Clone)")
+                            currentTask = Task.BringSalamiToFridge;
                     }
                     else
                     {
@@ -69,9 +69,13 @@ public class KoalaController : MonoBehaviour {
                 if (!indoor)
                 {
                     //logic for... take supplies (pizza kartons, salami etc) and bring it inside 
-                    if(GameController.Instance.pizzaKartonSupply.amount > 0)
+                    if(GameController.Instance.pizzaKartonSupply.transform.childCount > 0)
                     {
                         currentTask = Task.BringPizzaKartonToOven;
+                    }
+                    if (GameController.Instance.salamiSupply.transform.childCount > 0)
+                    {
+                        currentTask = Task.BringSalamiToFridge;
                     }
                     //else
                     if (GameController.Instance.mopeds > 0) // moped available?
@@ -131,6 +135,10 @@ public class KoalaController : MonoBehaviour {
                             transform.parent.Rotate(Vector3.up, 180);
                             currentTask = Task.DriveMopedToWindow;
                         }
+                        else
+                        {
+                            currentTask = Task.ChoseTask;
+                        }
                     }
                 }
                 break;
@@ -149,7 +157,7 @@ public class KoalaController : MonoBehaviour {
                 {
                     if (transform.childCount == 0)
                     {
-                        if (GameController.Instance.pizzaKartonSupply.amount > 0)
+                        if (GameController.Instance.pizzaKartonSupply.transform.childCount > 0)
                         {
                             if (transform.position.x > GameController.Instance.pizzaKartonSupply.transform.position.x)
                             {
@@ -179,6 +187,47 @@ public class KoalaController : MonoBehaviour {
                         karton.rotation = Quaternion.identity;
                         transform.GetChild(0).parent = GameController.Instance.pizzaKartonStapelAtOven;
                         karton.localPosition = Vector3.up * GameController.Instance.pizzaKartonStapelAtOven.childCount * 0.25f;
+                        currentTask = Task.ChoseTask;
+                    }
+                }
+
+                break;
+
+            case Task.BringSalamiToFridge:
+                if (!indoor)
+                {
+                    if (transform.childCount == 0)
+                    {
+                        if (GameController.Instance.salamiSupply.transform.childCount > 0)
+                        {
+                            if (transform.position.x > GameController.Instance.salamiSupply.transform.position.x)
+                            {
+                                transform.position += Vector3.left * Time.deltaTime;
+                            }
+                            else if (GameController.Instance.salamiSupply.transform.childCount > 0)
+                            {
+                                GameController.Instance.salamiSupply.transform.GetChild(GameController.Instance.salamiSupply.transform.childCount - 1).parent = transform;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        currentTask = Task.GetInside;
+                    }
+                }
+                if (indoor)
+                {
+                    if (transform.position.x < GameController.Instance.salamiStapelAtOven.position.x)
+                    {
+                        transform.Translate(Vector3.right * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.GetChild(0).localScale = Vector3.one*0.5f;
+                        Transform salami = transform.GetChild(0);
+                        salami.rotation = Quaternion.identity;
+                        transform.GetChild(0).parent = GameController.Instance.salamiStapelAtOven;
+                        salami.localPosition = Vector3.up * GameController.Instance.salamiStapelAtOven.childCount * 0.25f;
                         currentTask = Task.ChoseTask;
                     }
                 }
