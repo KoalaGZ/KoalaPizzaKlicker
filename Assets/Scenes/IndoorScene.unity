@@ -122,8 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 12204105}
   - component: {fileID: 12204104}
-  - component: {fileID: 12204106}
-  - component: {fileID: 12204107}
   m_Layer: 0
   m_Name: boy1
   m_TagString: Untagged
@@ -182,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 12204103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.38, y: 1.15, z: 0}
+  m_LocalPosition: {x: 8.05, y: 0.913, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -220,21 +218,16 @@ RectTransform:
   m_Father: {fileID: 1589903831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 339.4, y: -205.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57589866
-=======
---- !u!114 &12204106
->>>>>>> a6ee668c09e6813ffefd8bf08f796f1379e0a620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 57589864}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -315,35 +308,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 57589864}
-=======
-  m_GameObject: {fileID: 12204103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f58f50476ccd8de4498ba7cb87aaf1ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorOffset: 0.5
-  onDoor: 0
-  direction: 1
-  currentTask: 1
---- !u!95 &12204107
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 12204103}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9c56169d44adb2489afbb6b4b28305f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
->>>>>>> a6ee668c09e6813ffefd8bf08f796f1379e0a620
 --- !u!1 &86048768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1139,6 @@ GameObject:
   m_Component:
   - component: {fileID: 467244134}
   - component: {fileID: 467244133}
-  - component: {fileID: 467244135}
   m_Layer: 0
   m_Name: girl1
   m_TagString: Untagged
@@ -1234,31 +1197,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467244132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.83, y: 1.02, z: 0}
+  m_LocalPosition: {x: 7.718046, y: 0.9144287, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 35
-=======
-  m_RootOrder: 30
->>>>>>> a6ee668c09e6813ffefd8bf08f796f1379e0a620
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &467244135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 467244132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f58f50476ccd8de4498ba7cb87aaf1ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorOffset: 0.5
-  onDoor: 0
-  direction: 1
-  currentTask: 1
 --- !u!1 &478040375
 GameObject:
   m_ObjectHideFlags: 0
@@ -4710,11 +4654,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 34
-=======
-  m_RootOrder: 29
->>>>>>> a6ee668c09e6813ffefd8bf08f796f1379e0a620
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063813232
 GameObject:
