@@ -55,10 +55,10 @@ public class KoalaController : MonoBehaviour {
                     //logic for... serve guests 
                     if (transform.childCount != 0)
                     {
+                        if(transform.GetChild(0).name == "PizzaKarton(Clone)") 
+                            currentTask = Task.BringPizzaKartonToOven;
 
-                        currentTask = Task.BringPizzaKartonToOven;
-
-                        currentTask = Task.BringSalamiToFridge;
+                        //currentTask = Task.BringSalamiToFridge;
                     }
                     else
                     {
@@ -155,7 +155,7 @@ public class KoalaController : MonoBehaviour {
                             {
                                 transform.position += Vector3.left * Time.deltaTime;
                             }
-                            else
+                            else if(GameController.Instance.pizzaKartonSupply.transform.childCount > 0)
                             {
                                 GameController.Instance.pizzaKartonSupply.transform.GetChild(GameController.Instance.pizzaKartonSupply.transform.childCount - 1).parent = transform;
                             }
@@ -168,7 +168,19 @@ public class KoalaController : MonoBehaviour {
                 }
                 if (indoor)
                 {
-
+                    if(transform.position.x < GameController.Instance.pizzaKartonStapelAtOven.position.x)
+                    {
+                        transform.Translate(Vector3.right * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.GetChild(0).localScale = Vector3.one;
+                        Transform karton = transform.GetChild(0);
+                        karton.rotation = Quaternion.identity;
+                        transform.GetChild(0).parent = GameController.Instance.pizzaKartonStapelAtOven;
+                        karton.localPosition = Vector3.up * GameController.Instance.pizzaKartonStapelAtOven.childCount * 0.25f;
+                        currentTask = Task.ChoseTask;
+                    }
                 }
 
                 break;

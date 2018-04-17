@@ -8,15 +8,16 @@ public class DeliveryVan : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        StartCoroutine(DeliverDriveby());
+
+    }
 	
     IEnumerator DeliverDriveby ()
     {
         float duration = 4;
 
         Vector3 fromPos = transform.position;
-        Vector3 toPos = stapel.transform.position;
+        Vector3 toPos = stapel.transform.position + Vector3.down*0.5f;
 
         for (float t=0; t<duration; t += Time.deltaTime)
         {
@@ -27,6 +28,7 @@ public class DeliveryVan : MonoBehaviour {
         yield return new WaitForSeconds(1);
 
         stapel.AddElement();
+        fromPos = transform.position;
         toPos = new Vector3(5, 0, 0);
         for (float t = 0; t < duration; t += Time.deltaTime)
         {

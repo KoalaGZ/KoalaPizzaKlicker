@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4727492619282250}
   - component: {fileID: 212527724289461356}
+  - component: {fileID: 114495125421086982}
   m_Layer: 0
   m_Name: FoodWagen
   m_TagString: Untagged
@@ -40,6 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114495125421086982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060911462309920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69eb6e62cc784eb4692e249ffcd96d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stapel: {fileID: 0}
 --- !u!212 &212527724289461356
 SpriteRenderer:
   m_ObjectHideFlags: 1

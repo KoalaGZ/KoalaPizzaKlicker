@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Stapel : MonoBehaviour {
-
-    public GameObject pizzaKartonPrefab;
-    int kartonOffset;
+    GameObject stapelObjectPrefab;
+    int objectOffset;
     int frameCount;
     float duration;
     public float turnSpeed;
@@ -23,11 +22,11 @@ public class Stapel : MonoBehaviour {
 
     public void AddElement()
     {
-        Transform newElement =  Instantiate(pizzaKartonPrefab, transform.position + kartonOffset * new Vector3(0.1f, 0f, 0f), Quaternion.identity, transform).transform;
-        StartCoroutine(kartonRotation(newElement));
+        Transform newElement =  Instantiate(stapelObjectPrefab, transform.position + objectOffset * new Vector3(0.1f, 0f, 0f), Quaternion.identity, transform).transform;
+        StartCoroutine(ObjectRotation(newElement));
     }
 
-    IEnumerator kartonRotation(Transform tKarton)
+    IEnumerator ObjectRotation(Transform tKarton)
     {
         for(float t = 0; t < duration; t ++)
         {
@@ -37,21 +36,23 @@ public class Stapel : MonoBehaviour {
             
     }
 
-    public void RemoveElement()
-    {
-        if (!pizzaKartonPrefab)
-        {
-            Destroy(transform.GetChild(transform.childCount).gameObject);
-        }
-    }
     private void Start()
     {
         duration = 270f;
         turnSpeed = 1f;
+        switch (type)
+        {
+            case Type.PizzaKarton:
+                stapelObjectPrefab = GameController.Instance.pizzaKartonPrefab;
+                break;
+            case Type.Salami:
+                stapelObjectPrefab = GameController.Instance.salamiPrefab;
+                break;
+        }
     }
     private void Update()
     {
-        kartonOffset = transform.childCount;
+        objectOffset = transform.childCount;
         frameCount++;
 
         if (Input.GetKeyUp(KeyCode.Space))

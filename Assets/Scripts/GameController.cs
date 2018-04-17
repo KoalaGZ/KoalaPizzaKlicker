@@ -27,14 +27,24 @@ public class GameController : MonoBehaviour {
     public int mopedPrice = 100;
     public int pizzakartonPrice = 10;
 
+    public int salamiPrice = 10;
+
     public GameObject deliveryVanPrefab;
-    public Stapel pizzaKartonStapel;
     public Transform Window;
 
     #endregion
 
     #region supply stapel
     public Stapel pizzaKartonSupply;
+    public Transform pizzaKartonStapelAtOven;
+
+    public Stapel salamiSupply;
+    public Transform salamiStapelAtOven;
+
+
+    public GameObject pizzaKartonPrefab;
+    public GameObject salamiPrefab;
+
     #endregion
 
     // Use this for initialization
@@ -109,7 +119,18 @@ public class GameController : MonoBehaviour {
         if(money >= pizzakartonPrice)
         {
             DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
-            van.stapel = pizzaKartonStapel;
+            van.stapel = pizzaKartonSupply;
+            money -= pizzakartonPrice;
+        }
+    }
+
+    public void BuySalami()
+    {
+        if (money >= salamiPrice)
+        {
+            DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
+            van.stapel = salamiSupply;
+            money -= salamiPrice;
         }
     }
 }
