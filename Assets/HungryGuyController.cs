@@ -54,24 +54,25 @@ public class HungryGuyController : MonoBehaviour
                     //left from door
                     if (transform.position.x < KoalaSpawner.Instance.OutdoorDoor.position.x) { 
                         direction = -1;
-                        onDoor = false;
                     }
                 //hab ich geqaddet, weil die wenn die rechts vom eingang waren nicht zur tür gelaufen sind, sondern direkt drin waren --> ELSE
                 //tight from door
                 else if (transform.position.x > KoalaSpawner.Instance.OutdoorDoor.position.x) { 
                         direction = 1;
-                        onDoor = false;
                     }
-                    if (transform.position.x != KoalaSpawner.Instance.OutdoorDoor.position.x) {
+
+                    /*
+                    if (transform.position.x > KoalaSpawner.Instance.OutdoorDoor.position.x && direction = 1) {
                         transform.Translate(Vector3.left * Time.deltaTime * direction);
                             }
+                    else if()
                     else
                     {
                         indoor = true;
                         transform.position = KoalaSpawner.Instance.IndoorDoor.position;
                         currentTask = Task.ChoseTask;
                     }
-
+                    */
                 }
 
 
