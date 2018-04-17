@@ -28,6 +28,16 @@ public class GameController : MonoBehaviour {
     public int pizzakartonPrice = 10;
 
     public int salamiPrice = 10;
+    public int cheesePrice = 10;
+    public int tomatoesPrice = 10;
+    public int flourPrice = 10;
+
+    //Price that player defines
+    public int salamiSellPrice = 20;
+    public int cheeseSellPrice = 20;
+    public int tomatoesSellPrice = 20;
+    public int flourSellPrice = 20;
+    public int pizzaKartonSellPrice = 20;
 
     public GameObject deliveryVanPrefab;
     public Transform Window;
@@ -35,6 +45,10 @@ public class GameController : MonoBehaviour {
     #endregion
 
     #region supply stapel
+
+    public Stapel flourSupply;
+    public Transform flourStapelAtOven;
+
     public Stapel pizzaKartonSupply;
     public Transform pizzaKartonStapelAtOven;
 
@@ -42,10 +56,28 @@ public class GameController : MonoBehaviour {
     public Transform salamiStapelAtOven;
 
 
+    public Stapel cheeseSupply;
+    public Transform cheeseStapelAtOven;
+
+    public Stapel tomatoesSupply;
+    public Transform tomatoesStapelAtOven;
+
+
     public GameObject pizzaKartonPrefab;
     public GameObject salamiPrefab;
+    public GameObject cheesePrefab;
+    public GameObject tomatoesPrefab;
+    public GameObject flourPrefab;
 
     #endregion
+
+    public Transform desk;
+
+    public Transform kasse;
+
+    public Transform ofen;
+
+    public Transform indoorWindow;
 
     // Use this for initialization
     void Awake () {
@@ -131,6 +163,35 @@ public class GameController : MonoBehaviour {
             DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
             van.stapel = salamiSupply;
             money -= salamiPrice;
+        }
+    }
+    public void BuyCheese()
+    {
+        if (money >= cheesePrice)
+        {
+            DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
+            van.stapel = cheeseSupply;
+            money -= cheesePrice;
+        }
+    }
+
+    public void BuyFlour()
+    {
+        if (money >= flourPrice)
+        {
+            DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
+            van.stapel = flourSupply;
+            money -= flourPrice;
+        }
+    }
+
+    public void BuyTomatoes()
+    {
+        if (money >= tomatoesPrice)
+        {
+            DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
+            van.stapel = tomatoesSupply;
+            money -= tomatoesPrice;
         }
     }
 }

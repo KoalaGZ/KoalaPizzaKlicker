@@ -10,10 +10,10 @@ TextureImporter:
     21300006: "k\xFChlschrankundCo_3"
     21300008: flour
     21300010: "k\xFChlschrank"
-    21300012: kuehlschrankundCo_0
+    21300012: Cheese
     21300014: Salami
-    21300016: kuehlschrankundCo_2
-    21300018: kuehlschrankundCo_3
+    21300016: Tomatoe
+    21300018: Flour
     21300020: kuehlschrankundCo_4
     21300022: kuehlschrankTuer
   externalObjects: {}
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kuehlschrankundCo_0
+      name: Cheese
       rect:
         serializedVersion: 2
         x: 48
@@ -139,7 +139,7 @@ TextureImporter:
       name: Salami
       rect:
         serializedVersion: 2
-        x: 147
+        x: 144
         y: 388
         width: 63
         height: 68
@@ -150,7 +150,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: kuehlschrankundCo_2
+      name: Tomatoe
       rect:
         serializedVersion: 2
         x: 245
@@ -164,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: kuehlschrankundCo_3
+      name: Flour
       rect:
         serializedVersion: 2
         x: 43
@@ -200,7 +200,7 @@ TextureImporter:
         width: 246
         height: 337
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

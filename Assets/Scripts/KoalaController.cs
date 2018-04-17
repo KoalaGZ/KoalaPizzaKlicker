@@ -25,6 +25,9 @@ public class KoalaController : MonoBehaviour {
         TakeCheese,
         BringCheeseToFridge,
 
+        TakeTomatoes,
+        BringTomatoesToFridge,
+
         TakeFlour,
         BringFlourToDesk,
 
@@ -59,6 +62,12 @@ public class KoalaController : MonoBehaviour {
                             currentTask = Task.BringPizzaKartonToOven;
                         if (transform.GetChild(0).name == "Salami(Clone)")
                             currentTask = Task.BringSalamiToFridge;
+                        if (transform.GetChild(0).name == "Cheese(Clone)")
+                            currentTask = Task.BringCheeseToFridge;
+                        if (transform.GetChild(0).name == "Tomatoes(Clone)")
+                            currentTask = Task.BringTomatoesToFridge;
+                        if (transform.GetChild(0).name == "Flour(Clone)")
+                            currentTask = Task.BringFlourToDesk;
                     }
                     else
                     {
@@ -77,7 +86,21 @@ public class KoalaController : MonoBehaviour {
                     {
                         currentTask = Task.BringSalamiToFridge;
                     }
-                    //else
+                    if (GameController.Instance.cheeseSupply.transform.childCount > 0)
+                    {
+                        currentTask = Task.BringCheeseToFridge;
+                    }
+                    if (GameController.Instance.tomatoesSupply.transform.childCount > 0)
+                    {
+                        currentTask = Task.BringTomatoesToFridge;
+                    }
+                    if (GameController.Instance.flourSupply.transform.childCount > 0)
+                    {
+                        currentTask = Task.BringFlourToDesk;
+                    }
+
+
+
                     if (GameController.Instance.mopeds > 0) // moped available?
                         currentTask = Task.GetOnMoped;
                 }
@@ -148,7 +171,24 @@ public class KoalaController : MonoBehaviour {
                     transform.parent.position += Vector3.left * Time.deltaTime;
                 else
                 {
+                    if (GameController.Instance.Window.childCount > 0)
+                    {
+                        Transform deliveryPizza = GameController.Instance.Window.GetChild(0);
+                        deliveryPizza.parent = transform;
+                        deliveryPizza.localPosition = Vector3.zero;
+                        transform.parent.Rotate(Vector3.up, -180);
+                        currentTask = Task.DeliverPizza;
+                    }
+                }
+                break;
 
+            case Task.DeliverPizza:
+                if (transform.position.x < 12)
+                    transform.parent.Translate(Vector3.right * Time.deltaTime);
+                else
+                {
+                    transform.parent.Rotate(Vector3.up, 180);
+                    currentTask = Task.DriveMopedToWindow;
                 }
                 break;
 
@@ -228,6 +268,88 @@ public class KoalaController : MonoBehaviour {
                         salami.rotation = Quaternion.identity;
                         transform.GetChild(0).parent = GameController.Instance.salamiStapelAtOven;
                         salami.localPosition = Vector3.up * GameController.Instance.salamiStapelAtOven.childCount * 0.25f;
+                        currentTask = Task.ChoseTask;
+                    }
+                }
+
+                break;
+
+            case Task.BringCheeseToFridge:
+                if (!indoor)
+                {
+                    if (transform.childCount == 0)
+                    {
+                        if (GameController.Instance.cheeseSupply.transform.childCount > 0)
+                        {
+                            if (transform.position.x > GameController.Instance.cheeseSupply.transform.position.x)
+                            {
+                                transform.position += Vector3.left * Time.deltaTime;
+                            }
+                            else if (GameController.Instance.cheeseSupply.transform.childCount > 0)
+                            {
+                                GameController.Instance.cheeseSupply.transform.GetChild(GameController.Instance.cheeseSupply.transform.childCount - 1).parent = transform;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        currentTask = Task.GetInside;
+                    }
+                }
+                if (indoor)
+                {
+                    if (transform.position.x < GameController.Instance.cheeseStapelAtOven.position.x)
+                    {
+                        transform.Translate(Vector3.right * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.GetChild(0).localScale = Vector3.one * 0.5f;
+                        Transform cheese = transform.GetChild(0);
+                        cheese.rotation = Quaternion.identity;
+                        transform.GetChild(0).parent = GameController.Instance.cheeseStapelAtOven;
+                        cheese.localPosition = Vector3.up * GameController.Instance.cheeseStapelAtOven.childCount * 0.25f;
+                        currentTask = Task.ChoseTask;
+                    }
+                }
+
+                break;
+
+            case Task.BringFlourToDesk:
+                if (!indoor)
+                {
+                    if (transform.childCount == 0)
+                    {
+                        if (GameController.Instance.flourSupply.transform.childCount > 0)
+                        {
+                            if (transform.position.x > GameController.Instance.flourSupply.transform.position.x)
+                            {
+                                transform.position += Vector3.left * Time.deltaTime;
+                            }
+                            else if (GameController.Instance.flourSupply.transform.childCount > 0)
+                            {
+                                GameController.Instance.flourSupply.transform.GetChild(GameController.Instance.flourSupply.transform.childCount - 1).parent = transform;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        currentTask = Task.GetInside;
+                    }
+                }
+                if (indoor)
+                {
+                    if (transform.position.x < GameController.Instance.flourStapelAtOven.position.x)
+                    {
+                        transform.Translate(Vector3.right * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.GetChild(0).localScale = Vector3.one * 0.5f;
+                        Transform flour = transform.GetChild(0);
+                        flour.rotation = Quaternion.identity;
+                        transform.GetChild(0).parent = GameController.Instance.flourStapelAtOven;
+                        flour.localPosition = Vector3.up * GameController.Instance.flourStapelAtOven.childCount * 0.25f;
                         currentTask = Task.ChoseTask;
                     }
                 }

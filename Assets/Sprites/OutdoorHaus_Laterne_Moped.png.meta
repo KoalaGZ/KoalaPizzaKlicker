@@ -10,6 +10,7 @@ TextureImporter:
     21300006: Moped
     21300008: desk
     21300010: FoodWagen
+    21300012: Kasse
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -185,6 +186,20 @@ TextureImporter:
         height: 78
       alignment: 9
       pivot: {x: 0.4626148, y: 0.10900331}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Kasse
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 44
+        width: 75
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

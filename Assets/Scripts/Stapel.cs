@@ -14,7 +14,8 @@ public class Stapel : MonoBehaviour {
         PizzaKarton,
         Salami,
         Cheese,
-        Flour
+        Flour,
+        Tomatoes
     }
     public Type type;
 
@@ -47,6 +48,18 @@ public class Stapel : MonoBehaviour {
                 break;
             case Type.Salami:
                 stapelObjectPrefab = GameController.Instance.salamiPrefab;
+                break;
+
+            case Type.Cheese:
+                stapelObjectPrefab = GameController.Instance.cheesePrefab;
+                break;
+
+            case Type.Flour:
+                stapelObjectPrefab = GameController.Instance.flourPrefab;
+                break;
+
+            case Type.Tomatoes:
+                stapelObjectPrefab = GameController.Instance.tomatoesPrefab;
                 break;
         }
     }

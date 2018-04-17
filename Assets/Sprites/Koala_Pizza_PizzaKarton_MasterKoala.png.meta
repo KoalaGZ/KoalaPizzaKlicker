@@ -5,9 +5,10 @@ licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Koala
-    21300002: Pizza
+    21300002: bakedTeigboden
     21300004: MasterKoala
     21300006: PizzaKarton
+    21300008: teigboden
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -112,13 +113,13 @@ TextureImporter:
         width: 55
         height: 95
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Pizza
+      name: bakedTeigboden
       rect:
         serializedVersion: 2
         x: 93
@@ -126,7 +127,7 @@ TextureImporter:
         width: 23
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,7 +141,7 @@ TextureImporter:
         width: 55
         height: 104
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,6 +154,20 @@ TextureImporter:
         y: 21
         width: 40
         height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: teigboden
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 96
+        width: 29
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
