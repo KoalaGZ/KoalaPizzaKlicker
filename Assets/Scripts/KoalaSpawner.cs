@@ -8,7 +8,7 @@ public class KoalaSpawner : MonoBehaviour {
     public GameObject koalaPrefab;
     public Transform IndoorDoor;
     public Transform OutdoorDoor;
-    public Transform Moped;
+    public Transform MopedSpawn;
     private void Awake()
     {
         if (Instance != null)
@@ -16,7 +16,7 @@ public class KoalaSpawner : MonoBehaviour {
         else
             Instance = this;
 
-        oldKoalas = GameController.Instance.Koalas;
+        oldKoalas = GameController.Instance.koalas;
     }
     private void Update()
     {

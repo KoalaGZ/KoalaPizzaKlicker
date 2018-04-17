@@ -6,15 +6,32 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
     public static GameController Instance;
     
-    float Money = 10000.0f;
-    public int Koalas = 0;
-    int Oefen = 1;
+    float money = 10000.0f;
+    public int koalas = 0;
+    //int oefen = 1; ??
+    public int mopeds = 0;
+    public int koalaMopeds = 0;
+    public int pizzaKartons = 0;
 
     int frameCount;
     int frameRange = 30;
 
-    public Text moneyText;
-    public Text koalaText;
+    public Text MoneyText;
+    public Text KoalaText;
+
+
+    public int koalaPrice = 100;
+    
+    #region moped
+    public int mopedPrice = 100;
+
+    public Transform Window;
+
+    #endregion
+
+    #region supply stapel
+    public Stapel pizzaKartonSupply;
+    #endregion
 
     // Use this for initialization
     void Awake () {
@@ -23,10 +40,10 @@ public class GameController : MonoBehaviour {
             Destroy(gameObject);
         else
             Instance = this;
-        if (moneyText != null && koalaText != null)
+        if (MoneyText != null && KoalaText != null)
         {
-            moneyText.text = "Money: " + Money;
-            koalaText.text = "Koalas: " + Koalas;
+            MoneyText.text = "Money: " + money;
+            KoalaText.text = "Koalas: " + koalas;
         }
     }
 	
@@ -34,15 +51,15 @@ public class GameController : MonoBehaviour {
 	void Update () {
         frameCount++;
 
-        if(moneyText != null && koalaText != null)
+        if(MoneyText != null && KoalaText != null)
         {
-            moneyText.text = "Money: " + Money;
-            koalaText.text = "Koalas: " + Koalas;
+            MoneyText.text = "Money: " + money;
+            KoalaText.text = "Koalas: " + koalas;
         }
 
         if (frameCount >= frameRange)
         {
-            Money += 2.50f * Koalas;
+            money += 2.50f * koalas;
            
             frameCount = 0;
 
@@ -54,22 +71,32 @@ public class GameController : MonoBehaviour {
 
     public void BuyKoala()
     {
-        if (Money >= 100)
+        if (money >= koalaPrice)
         {
-            Koalas += 1;
-            Money -= 100;
+            koalas += 1;
+            money -= koalaPrice;
             KoalaSpawner.Instance.SpawnKoala();
         }
     }
 
     public void Buy100Koalas()
     {
-        if (Money >= 1000)
+        if (money >= koalaPrice * 100)
         {
-            Koalas += 100;
-            Money -= 1000;
+            koalas += 100;
+            money -= koalaPrice * 100;
             for(int i = 0; i<100; i++)
                 KoalaSpawner.Instance.SpawnKoala();
+        }
+    }
+
+    public void BuyMoped()
+    {
+        if(money >= mopedPrice)
+        {
+            mopeds++;
+            money -= mopedPrice;
+            MopedSpawner.Instance.SpawnMoped();
         }
     }
 }
