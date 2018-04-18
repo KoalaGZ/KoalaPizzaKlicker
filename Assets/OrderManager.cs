@@ -15,6 +15,13 @@ public class Order
 
     public bool inStore;
 
+    /// <summary>
+    /// A new order with the ingredients of the pizza
+    /// </summary>
+    /// <param name="salamiAmount"></param>
+    /// <param name="cheeseAmount"></param>
+    /// <param name="tomatoesAmount"></param>
+    /// <param name="orderInStore"></param>
     public Order(int salamiAmount, int cheeseAmount, int tomatoesAmount, bool orderInStore)
     {
         //(Pizzakarton + Flour) + Salami + Cheese  + Tomatoes 

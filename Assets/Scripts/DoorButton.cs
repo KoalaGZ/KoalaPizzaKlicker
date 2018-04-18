@@ -5,20 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class DoorButton : MonoBehaviour
 {
-    public GameObject IndoorCam;
-    public GameObject OutdoorCam;
     private void OnMouseDown()
     {
-        Debug.Log("indoor:" + IndoorCam.activeSelf + "<color=red>    outdoor:</color> " + OutdoorCam.activeSelf);
-        if(IndoorCam.activeSelf)
+       // Debug.Log("indoor:" + GameController.Instance.IndoorCam.activeSelf + "<color=red>    outdoor:</color> " + GameController.Instance.OutdoorCam.activeSelf);
+        if(GameController.Instance.IndoorCam.activeSelf)
         {
-            IndoorCam.SetActive(false);
-            OutdoorCam.SetActive(true);
+            GameController.Instance.IndoorCam.SetActive(false);
+            GameController.Instance.OutdoorCam.SetActive(true);
         }
         else
         {
-            OutdoorCam.SetActive(false);
-            IndoorCam.SetActive(true);
+            GameController.Instance.OutdoorCam.SetActive(false);
+            GameController.Instance.IndoorCam.SetActive(true);
         }
     }
 }

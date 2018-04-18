@@ -205,7 +205,9 @@ public class KoalaController : MonoBehaviour {
                             }
                             else if(GameController.Instance.pizzaKartonSupply.transform.childCount > 0)
                             {
-                                GameController.Instance.pizzaKartonSupply.transform.GetChild(GameController.Instance.pizzaKartonSupply.transform.childCount - 1).parent = transform;
+                                Transform ingredient = GameController.Instance.pizzaKartonSupply.transform.GetChild(GameController.Instance.pizzaKartonSupply.transform.childCount - 1);
+                                ingredient.parent = transform;
+                                ingredient.localPosition = Vector3.zero;
                             }
                         }
                     }
@@ -246,7 +248,9 @@ public class KoalaController : MonoBehaviour {
                             }
                             else if (GameController.Instance.salamiSupply.transform.childCount > 0)
                             {
-                                GameController.Instance.salamiSupply.transform.GetChild(GameController.Instance.salamiSupply.transform.childCount - 1).parent = transform;
+                                Transform ingredient = GameController.Instance.salamiSupply.transform.GetChild(GameController.Instance.salamiSupply.transform.childCount - 1);
+                                ingredient.parent = transform;
+                                ingredient.localPosition = Vector3.zero;
                             }
                         }
                     }
@@ -287,7 +291,9 @@ public class KoalaController : MonoBehaviour {
                             }
                             else if (GameController.Instance.cheeseSupply.transform.childCount > 0)
                             {
-                                GameController.Instance.cheeseSupply.transform.GetChild(GameController.Instance.cheeseSupply.transform.childCount - 1).parent = transform;
+                                Transform ingredient = GameController.Instance.cheeseSupply.transform.GetChild(GameController.Instance.cheeseSupply.transform.childCount - 1);
+                                ingredient.parent = transform;
+                                ingredient.localPosition = Vector3.zero;
                             }
                         }
                     }
@@ -315,6 +321,50 @@ public class KoalaController : MonoBehaviour {
 
                 break;
 
+            case Task.BringTomatoesToFridge:
+                if (!indoor)
+                {
+                    if (transform.childCount == 0)
+                    {
+                        if (GameController.Instance.tomatoesSupply.transform.childCount > 0)
+                        {
+                            if (transform.position.x > GameController.Instance.tomatoesSupply.transform.position.x)
+                            {
+                                transform.position += Vector3.left * Time.deltaTime;
+                            }
+                            else if (GameController.Instance.tomatoesSupply.transform.childCount > 0)
+                            {
+                                Transform ingredient = GameController.Instance.tomatoesSupply.transform.GetChild(GameController.Instance.tomatoesSupply.transform.childCount - 1);
+                                ingredient.parent = transform;
+                                ingredient.localPosition = Vector3.zero;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        currentTask = Task.GetInside;
+                    }
+                }
+                if (indoor)
+                {
+                    if (transform.position.x < GameController.Instance.tomatoesStapelAtOven.position.x)
+                    {
+                        transform.Translate(Vector3.right * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.GetChild(0).localScale = Vector3.one * 0.5f;
+                        Transform tomatoes = transform.GetChild(0);
+                        tomatoes.rotation = Quaternion.identity;
+                        transform.GetChild(0).parent = GameController.Instance.tomatoesStapelAtOven;
+                        tomatoes.localPosition = Vector3.up * GameController.Instance.tomatoesStapelAtOven.childCount * 0.25f;
+                        currentTask = Task.ChoseTask;
+                    }
+                }
+
+                break;
+
+
             case Task.BringFlourToDesk:
                 if (!indoor)
                 {
@@ -328,7 +378,9 @@ public class KoalaController : MonoBehaviour {
                             }
                             else if (GameController.Instance.flourSupply.transform.childCount > 0)
                             {
-                                GameController.Instance.flourSupply.transform.GetChild(GameController.Instance.flourSupply.transform.childCount - 1).parent = transform;
+                                Transform ingredient = GameController.Instance.flourSupply.transform.GetChild(GameController.Instance.flourSupply.transform.childCount - 1);
+                                ingredient.parent = transform;
+                                ingredient.localPosition = Vector3.zero;
                             }
                         }
                     }

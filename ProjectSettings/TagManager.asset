@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Koala
   - 
   - 
   - 
@@ -53,8 +53,14 @@ TagManager:
   - name: Background0
     uniqueID: 2950213189
     locked: 0
+  - name: Koala
+    uniqueID: 2540405029
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 2814106391
     locked: 0
   - name: UI
     uniqueID: 2973885897

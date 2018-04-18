@@ -79,6 +79,8 @@ public class GameController : MonoBehaviour {
 
     public Transform indoorWindow;
 
+    public GameObject IndoorCam;
+    public GameObject OutdoorCam;
     // Use this for initialization
     void Awake () {
         DontDestroyOnLoad(this);
@@ -95,7 +97,6 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        frameCount++;
 
         if(MoneyText != null && KoalaText != null)
         {
@@ -103,13 +104,14 @@ public class GameController : MonoBehaviour {
             KoalaText.text = "Koalas: " + koalas;
         }
 
-        if (frameCount >= frameRange)
-        {
-            money += 2.50f * koalas;
+        //frameCount++;
+        //if (frameCount >= frameRange)
+        //{
+        //    money += 2.50f * koalas;
            
-            frameCount = 0;
+        //    frameCount = 0;
 
-        }
+        //}
 
         
         
@@ -121,6 +123,7 @@ public class GameController : MonoBehaviour {
         {
             koalas += 1;
             money -= koalaPrice;
+            SpendMoney(koalaPrice);
             KoalaSpawner.Instance.SpawnKoala();
         }
     }
@@ -131,7 +134,8 @@ public class GameController : MonoBehaviour {
         {
             koalas += 100;
             money -= koalaPrice * 100;
-            for(int i = 0; i<100; i++)
+            SpendMoney(koalaPrice * 100);
+            for (int i = 0; i<100; i++)
                 KoalaSpawner.Instance.SpawnKoala();
         }
     }
@@ -142,6 +146,7 @@ public class GameController : MonoBehaviour {
         {
             mopeds++;
             money -= mopedPrice;
+            SpendMoney(mopedPrice);
             MopedSpawner.Instance.SpawnMoped();
         }
     }
@@ -153,6 +158,7 @@ public class GameController : MonoBehaviour {
             DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
             van.stapel = pizzaKartonSupply;
             money -= pizzakartonPrice;
+            SpendMoney(pizzakartonPrice);
         }
     }
 
@@ -163,6 +169,7 @@ public class GameController : MonoBehaviour {
             DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
             van.stapel = salamiSupply;
             money -= salamiPrice;
+            SpendMoney(salamiPrice);
         }
     }
     public void BuyCheese()
@@ -172,6 +179,7 @@ public class GameController : MonoBehaviour {
             DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
             van.stapel = cheeseSupply;
             money -= cheesePrice;
+            SpendMoney(cheesePrice);
         }
     }
 
@@ -182,6 +190,7 @@ public class GameController : MonoBehaviour {
             DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
             van.stapel = flourSupply;
             money -= flourPrice;
+            SpendMoney(flourPrice);
         }
     }
 
@@ -192,6 +201,59 @@ public class GameController : MonoBehaviour {
             DeliveryVan van = Instantiate(deliveryVanPrefab, new Vector3(12, 0, 0), Quaternion.identity).GetComponent<DeliveryVan>();
             van.stapel = tomatoesSupply;
             money -= tomatoesPrice;
+            SpendMoney(tomatoesPrice);
         }
+    }
+    [Header("--UI--")]
+    public GameObject[] ingredientPopupButtons;
+    public GameObject[] materialsPopupButtons;
+
+    public void UiIngredientsPopup()
+    {
+        //activate/deactive the sub buttons
+        foreach(GameObject sb in ingredientPopupButtons)
+        {
+            sb.SetActive(!sb.activeSelf);
+        }
+    }
+    public void UiMaterialsPopup()
+    {
+        //activate/deactive the sub buttons
+        foreach (GameObject sb in materialsPopupButtons)
+        {
+            sb.SetActive(!sb.activeSelf);
+        }
+    }
+
+    void SpendMoney(int amount)
+    {
+        for(int i=0; i<amount; i++)
+        {
+            StartCoroutine(SpendKoalaDollarRoutine());
+        }
+    }
+
+    public GameObject koalaDollarPrefab;
+    IEnumerator SpendKoalaDollarRoutine()
+    {
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+        Vector3 moneyPosition = new Vector3();
+        if (OutdoorCam.activeSelf)
+             moneyPosition = new Vector3(Random.Range(7f,7.1f), 2.3f, 0); //Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
+        if(IndoorCam.activeSelf)
+            moneyPosition = new Vector3(Random.Range(0.8f, 0.9f), 1.08f, 0); //Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
+
+        Transform koalaDollar = Instantiate(koalaDollarPrefab, moneyPosition, Quaternion.identity, transform).transform;
+        float velocityX = Random.Range(0, 2)-1;
+        float velocityY = Random.Range(0, 1);
+        float speed = Random.Range(1f,1.6f);
+        while (koalaDollar.position.y > -1.1f)
+        {
+            koalaDollar.position +=(Vector3.down * velocityY * speed + Vector3.right * velocityX*speed*2f + Vector3.down*4f)* Time.deltaTime;
+            
+            yield return new WaitForEndOfFrame();
+        }
+
+        Destroy(koalaDollar.gameObject);
     }
 }
