@@ -2068,7 +2068,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1845873105}
-        m_MethodName: UiMaterialsPopup
+        m_MethodName: UiPricesPopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5808,6 +5808,9 @@ MonoBehaviour:
   materialsPopupButtons:
   - {fileID: 1137151212}
   - {fileID: 936020313}
+  pricesPopupButtons:
+  - {fileID: 2091791705}
+  - {fileID: 1665472650}
   koalaDollarPrefab: {fileID: 1083177578072440, guid: 31529e0467b4df445b1cdced5dedaf95,
     type: 2}
 --- !u!4 &1845873106
